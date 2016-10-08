@@ -93,7 +93,12 @@ export class Board
 
 	private checkIfAlive(x: number, y: number, candidate: boolean)
 	{
-		var tile = this.board[x][y];
+		var tile: Tile;
+
+		if(this.board[x] != undefined)
+		{
+			tile = this.board[x][y];
+		}
 
 		if(tile != undefined)
 		{
@@ -131,7 +136,10 @@ export class Board
 
 			this.candidates.push(cordinates);
 		}
-
+		if(this.board[x] == undefined)
+		{
+			return 0;
+		}
 		if(this.board[x][y] == undefined)
 		{
 			return 0;
